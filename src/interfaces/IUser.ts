@@ -1,3 +1,5 @@
+import { ICompany } from "./ICompany"
+
 export interface IUser {
   _id?: string
   name: string
@@ -5,6 +7,7 @@ export interface IUser {
   password?: string
   role: 'admin'
   status: 'active' | 'inactive'
+  company?: ICompany
   createdAt?: string
   updatedAt?: string
   __v?: number
