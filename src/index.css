@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --primary-blue: #E3F5FF;
+    --primary-purple: #E5ECF6;
+    --light-background-primary: #FFF;
+    --dark-background-primary: #1C1C1C;
+    --light-background-secondary: #F7F9FB;
+    --dark-background-secondary: #282828;
+    --light-background-tertiary: #E8E8E8;
+    --dark-background-tertiary: #333333;
+  }
+}

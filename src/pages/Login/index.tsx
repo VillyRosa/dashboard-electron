@@ -3,6 +3,7 @@ import { Button } from "../../components/Button"
 import { Input } from "../../components/Input"
 import { useAuthContext } from "../../context/Auth"
 import { IUser } from "../../interfaces/IUser"
+import AuthProvider from "../../providers/AuthProvider"
 
 export default function Login() {
   const auth = useAuthContext()
@@ -11,24 +12,24 @@ export default function Login() {
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault()
-    await fetch('http://localhost:3636/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ email, password })
-    })
-      .then((response) => response.json())
-      .then((data: IUser) => {
-        auth.setUser(data)
+    await AuthProvider.login({ email, password })
+      .then((response: any) => {
+        if (response.hasOwnProperty('message')) {
+          alert(response.message)
+        } else {
+          auth.setUser(response as IUser)
+        }
       })
-      .catch((error) => console.error(error))
+      .catch((error) => { 
+        console.log(error)
+        alert('Erro ao tentar efetuar login')
+      })
   }
 
   return (
-    <div className="w-full h-screen bg-blue-200 flex justify-center items-center">
+    <div className="w-full h-screen flex justify-center items-center">
       <form
-        className="w-11/12 p-4 bg-white shadow-md rounded-md flex flex-col gap-4 md:w-2/3 lg:w-1/3"
+        className="w-11/12 p-4 bg-light-background-secondary border rounded-md flex flex-col gap-4 md:w-2/3 lg:w-1/3 dark:bg-dark-background-secondary dark:text-white"
         onSubmit={(e) => handleSubmit(e)}
       >
         <div>

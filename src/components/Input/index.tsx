@@ -15,12 +15,12 @@ export const Input = ({ label, ...props }: IInput) => {
 
   return (
     <div className="w-full flex flex-col gap-2">
-      <label className="w-full text-slate-800 font-semibold" htmlFor={props.id}>
+      <label className="w-full font-semibold" htmlFor={props.id}>
         {label}
       </label>
       <div className="w-full p-2 border border-slate-200 rounded-md flex items-center">
         <input 
-          className="w-full bg-none border-none outline-none"
+          className="w-full bg-transparent border-none outline-none"
           {...props}
           type={inputType}
         />
