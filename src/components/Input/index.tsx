@@ -1,17 +1,17 @@
-import { InputHTMLAttributes, useState } from "react";
-import { EyeSlash } from "../Icons/EyeSlash";
-import { Eye } from "../Icons/Eye";
+import { InputHTMLAttributes, useState } from "react"
+import { EyeSlash } from "../Icons/EyeSlash"
+import { Eye } from "../Icons/Eye"
 
 interface IInput extends InputHTMLAttributes<HTMLInputElement> {
-  label: string;
+  label: string
 }
 
 export const Input = ({ label, ...props }: IInput) => {
-  const [inputType, setInputType] = useState(props.type === 'password' ? 'password' : props.type);
+  const [inputType, setInputType] = useState(props.type === 'password' ? 'password' : props.type)
 
   function togglePasswordVisibility() {
-    setInputType((prevType) => (prevType === 'password' ? 'text' : 'password'));
-  };
+    setInputType((prevType) => (prevType === 'password' ? 'text' : 'password'))
+  }
 
   return (
     <div className="w-full flex flex-col gap-2">
@@ -31,5 +31,5 @@ export const Input = ({ label, ...props }: IInput) => {
         )}
       </div>
     </div>
-  );
-};
+  )
+}

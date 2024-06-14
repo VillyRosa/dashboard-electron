@@ -1,13 +1,13 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Content } from './components/Content';
-import Dashboard from './pages/Dashboard';
-import Clients from './pages/Clients';
-import Login from './pages/Login';
-import NotFound from './pages/NotFound';
-import AuthProvider, { useAuthContext } from './context/Auth';
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Content } from './components/Content'
+import Dashboard from './pages/Dashboard'
+import Clients from './pages/Clients'
+import Login from './pages/Login'
+import NotFound from './pages/NotFound'
+import AuthProvider, { useAuthContext } from './context/Auth'
 
 function AuthenticatedRoutes() {
-  const auth = useAuthContext();
+  const auth = useAuthContext()
 
   if (!auth.user) {
     return (
@@ -15,7 +15,7 @@ function AuthenticatedRoutes() {
         <Route path='/' element={<Login />} />
         <Route path='*' element={<Login />} />
       </Routes>
-    );
+    )
   }
 
   return (
@@ -26,7 +26,7 @@ function AuthenticatedRoutes() {
       </Route>
       <Route path='*' element={<NotFound />} />
     </Routes>
-  );
+  )
 }
 
 export default function AppRoutes() {
@@ -36,5 +36,5 @@ export default function AppRoutes() {
         <AuthenticatedRoutes />
       </BrowserRouter>
     </AuthProvider>
-  );
+  )
 }

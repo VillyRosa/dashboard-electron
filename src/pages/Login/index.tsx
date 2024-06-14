@@ -1,8 +1,8 @@
-import { FormEvent, useState } from "react";
-import { Button } from "../../components/Button";
-import { Input } from "../../components/Input";
-import { useAuthContext } from "../../context/Auth";
-import { IUser } from "../../interfaces/IUser";
+import { FormEvent, useState } from "react"
+import { Button } from "../../components/Button"
+import { Input } from "../../components/Input"
+import { useAuthContext } from "../../context/Auth"
+import { IUser } from "../../interfaces/IUser"
 
 export default function Login() {
   const auth = useAuthContext()
